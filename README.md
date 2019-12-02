@@ -9,10 +9,8 @@ Running CPython via terminal and Atom took the same time, so values for Atom are
 
 | Program     | Atom     | pypy3   | Atom/pypy3 |
 | --------    | :------: | :-----: | :--------: |
-| 1-1         |      |     |        |
-| 1-2	      |      |     |        |
-| 2-1         |      |     |        |
-| 2-2         |      |     |        |
+| 1           | 0.001    | 0.005   |        |
+| 2           | 0.125    | 0.019   |        |
 | 3-1         |      |     |        |
 | 3-2         |      |     |        |
 | 4-1         |      |     |        |

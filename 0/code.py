@@ -20,6 +20,10 @@ def day(te):
 
     return 0
 
+def day2(te):
+
+    return 0
+
 '''     #######     '''
 
 time0 = time.time()
@@ -37,17 +41,15 @@ except FileNotFoundError:
         t = f.readlines()
 
 t = [(x.strip().replace('<->','').replace(',','').replace('  ',' ')) for x in t]
-rows = len(t)
-cols = len(t[0])
-print(rows,cols)
+
 if part == 1:
     print("Part 1: ", day(t))
 elif part == 2:
-    print("Part 2: ", day(t))
+    print("Part 2: ", day2(t))
 elif part == 3:
     #run both
     print("Part 1: ", day(t))
-    print("Part 2: ", day(t))
+    print("Part 2: ", day2(t))
 
 tdif = time.time() - time0
 print("Elapsed time: {:.4f} s".format(tdif))
