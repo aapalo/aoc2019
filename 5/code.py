@@ -8,7 +8,7 @@ import time
 #from collections import deque
 '''     #######     '''
 
-date =
+date = 5
 dev = 0 # extra prints
 part = 1 # 1,2, or 3 for both
 samp = 0 # 0 or 1
@@ -40,7 +40,7 @@ except FileNotFoundError:
     with open("." + filename,"r") as f:
         t = f.readlines()
 
-t = [(x.strip().replace('  ',' ')) for x in t]
+t = [(x.strip().replace('<->','').replace(',','').replace('  ',' ')) for x in t]
 
 if part == 1:
     print("Part 1: ", day(t))
