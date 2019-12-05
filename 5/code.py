@@ -1,28 +1,58 @@
 #!/usr/bin/python3
 
-#from collections import Counter
-#import re
-#import os
 import time
-#from collections import defaultdict
-#from collections import deque
+
 '''     #######     '''
 
 date = 5
 dev = 0 # extra prints
 part = 1 # 1,2, or 3 for both
-samp = 0 # 0 or 1
+samp = 1 # 0 or 1
 
 '''     #######     '''
 
 
 def day(te):
-
-    return 0
+    a = []
+    for i in te[0].split(","):
+        a.append(int(i))
+    idx = 0
+    if not samp:
+        a[1] = 12
+        a[2] = 2
+    while idx < len(a):
+        print(a[idx])
+        instr = a[idx]
+        if instr == 1:
+            # add
+            a[a[idx+3]] = a[a[idx+1]] + a[a[idx+2]]
+            idx += 4
+        elif instr == 2:
+            a[a[idx+3]] = a[a[idx+1]] * a[a[idx+2]]
+            idx += 4
+        elif instr == 3:
+            a[a[idx+3]] = a[a[idx+1]] * a[a[idx+2]]
+            idx += 4
+        elif instr == 4:
+            a[a[idx+3]] = a[a[idx+1]] * a[a[idx+2]]
+            idx += 4
+        elif instr == 99:
+            break
+        idx += 1
+    return a[0]
 
 def day2(te):
-
-    return 0
+    b = []
+    for i in te[0].split(","):
+        b.append(int(i))
+    ans = 19690720
+    for n in range(0, 100):
+        for v in range(0, 99):
+            val = func(b[:], n, v)
+            #print(n, v, val)
+            if val == ans:
+                return (100*n+v)
+    return 1
 
 '''     #######     '''
 
@@ -40,7 +70,7 @@ except FileNotFoundError:
     with open("." + filename,"r") as f:
         t = f.readlines()
 
-t = [(x.strip().replace('<->','').replace(',','').replace('  ',' ')) for x in t]
+t = [(x.strip().replace('<->','').replace('  ',' ')) for x in t]
 
 if part == 1:
     print("Part 1: ", day(t))
