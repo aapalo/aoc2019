@@ -7,16 +7,14 @@ My solutions for [Advent of code](https://adventofcode.com/2019) programming puz
 Used time.time() to measure the time difference in seconds.
 Running CPython via terminal and Atom took the same time, so values for Atom are shown.
 
-| Program     | Atom     | pypy3   | Atom/pypy3 |
-| --------    | :------: | :-----: | :--------: |
-| 1           | 0.001    | 0.005   |        |
-| 2           | 0.125    | 0.019   |        |
-| 3           | 3.563    | 0.243   | 15     |
-| 4           | 1.110    | 0.137   | 8      |
-| 5-1         |      |     |        |
-| 5-2         |      |     |        |
-| 5-1         |      |     |        |
-| 6-1         |      |     |        |
+| Program   | Atom     | pypy3   | Atom/pypy3 |
+| --------  | :------: | :-----: | :--------: |
+| 1         | 0.001    | 0.005   |        |
+| 2         | 0.125    | 0.019   |        |
+| 3         | 3.563    | 0.243   | 15     |
+| 4         | 1.110    | 0.137   | 8      |
+| 5         | 0.002    | 0.010   |        |
+| 6         | 0.296    | 0.160   | 1.9    |
 | 6-2         |      |     |        |
 | 7-1         |      |     |        |
 | 7-2         |      |     |        |
@@ -28,8 +26,7 @@ Running CPython via terminal and Atom took the same time, so values for Atom are
 | 10-2         |      |     |        |
 | 11-1         |      |     |        |
 | 11-2         |      |     |        |
-| 12-1         |      |     |        |
-| 12-2         |      |     |        |
+| 12         | 6.84   | 1.1    | 6.2     |
 | 13-1         |      |     |        |
 | 13-2         |      |     |        |
 | 14-1         |      |     |        |

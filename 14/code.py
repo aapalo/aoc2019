@@ -8,7 +8,7 @@ import time
 #from collections import deque
 '''     #######     '''
 
-date =
+date = 14
 dev = 0 # extra prints
 part = 1 # 1,2, or 3 for both
 samp = 1 # 0 or 1
@@ -17,7 +17,8 @@ samp = 1 # 0 or 1
 
 
 def day(te):
-
+    for i in te:
+        print(i.split("=>"))
     return 0
 
 def day2(te):

@@ -11,7 +11,7 @@ import time
 date =
 dev = 0 # extra prints
 part = 1 # 1,2, or 3 for both
-samp = 1 # 0 or 1
+samp = 0 # 0 or 1
 
 '''     #######     '''
 

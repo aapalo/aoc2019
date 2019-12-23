@@ -6,21 +6,17 @@ import time
 
 date = 5
 dev = 0 # extra prints
-part = 1 # 1,2, or 3 for both
+part = 3 # 1,2, or 3 for both
 samp = 0 # 0 or 1
 
 '''     #######     '''
 
-
-def day(te):
+def day(te, puzInput):
     a = []
     for i in te[0].split(","):
         a.append(int(i))
     idx = 0
-    puzInput = 1
     puzOutputs = set()
-    print(len(a))
-    print(a)
     while idx < len(a):
         #print(a[idx])
         i = str(a[idx])
@@ -50,33 +46,34 @@ def day(te):
             a[a[idx+1]] = puzInput
             idx += 2
         elif instr == 4:
-            puzOut = a[a[idx+1]] if mode1 else a[a[idx+1]]
-            if puzOut:
-                puzOutputs.add(puzOut)
-            print("Output: ", puzOut)
+            puzOut = a[idx+1] if mode1 else a[a[idx+1]]
+            puzOutputs.add(puzOut)
+            #print("Output: ", puzOut)
             idx += 2
-        elif instr == 99:
-            print("Program done.")
-            break
-        else:
-            print("Error, unknown instruction: ", instr)
+        elif part > 1:
+            try:
+                p1 = a[idx+1] if mode1 else a[a[idx+1]]
+                p2 = a[idx+2] if mode2 else a[a[idx+2]]
+            except IndexError:
+                pass
+            if instr == 5:
+                idx = p2 if p1 != 0 else (idx+3)
+            elif instr == 6:
+                idx = p2 if p1 == 0 else (idx+3)
+            elif instr == 7:
+                #p3 = a[idx+3] if mode3 else a[a[idx+3]]
+                a[a[idx+3]] = 1 if (p1 < p2) else 0
+                idx += 4
+            elif instr == 8:
+                #p3 = a[idx+3] if mode3 else a[a[idx+3]]
+                a[a[idx+3]] = 1 if (p1 == p2) else 0
+                idx += 4
+        if instr == 99:
+            #print("Program done.")
             break
     if dev:
         print(a)
     return puzOutputs
-
-def day2(te):
-    b = []
-    for i in te[0].split(","):
-        b.append(int(i))
-    ans = 19690720
-    for n in range(0, 100):
-        for v in range(0, 99):
-            val = func(b[:], n, v)
-            #print(n, v, val)
-            if val == ans:
-                return (100*n+v)
-    return 1
 
 '''     #######     '''
 
@@ -95,14 +92,23 @@ except FileNotFoundError:
         t = f.readlines()
 
 t = [(x.strip().replace('<->','').replace('  ',' ')) for x in t]
+pin = 1
+
 if part == 1:
-    print("Part 1: ", day(t))
+    print("Part 1: ", day(t, 1))
 elif part == 2:
-    print("Part 2: ", day2(t))
+    print("Part 2: ", day(t, 5))
 elif part == 3:
     #run both
-    print("Part 1: ", day(t))
-    print("Part 2: ", day2(t))
+    part = 1
+    print("Part 1: ", day(t, 1))
+    part = 2
+    print("Part 2: ", day(t, 5))
+
+if samp:
+    pin = [0,2,4,6,8,10]
+    for p in pin:
+        print(p, "Sample: ", day(t, p))
 
 tdif = time.time() - time0
 print("Elapsed time: {:.4f} s".format(tdif))
